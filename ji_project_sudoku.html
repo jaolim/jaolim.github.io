@@ -35,11 +35,8 @@
             This is a showcase for a recursive backtracking brute force sudoku solver algorithm. <br>
             In addition to the solver function, there are multiple helper functions for validation and printing but
             the interesting stuff is in the solver. <br>
-            The original implemenetation was written in C for group project, and this follows the same logic written in
+            The original implemenetation was written in C for a group project, and this follows the same logic written in
             JavaScript.
-
-            <h2>The Solver Algorithm<br></h2>
-            The solver
 
         </div>
     </form>
@@ -48,20 +45,33 @@
         <P style="text-align: center; background-color: powderblue">
             The Solver gets x and y (0,0 for full sudoku validation) coordinates as parameters, and starting from
             those coordinates it follows the sudoku until the end (line 9, position 10) or until the sudoku has been
-            confirmed unsolvable<br>
+            confirmed invalid (unsolvable or multiple solutions).<br>
             The sudoku being analyzed is saved as a global variable 2d array[y][x] where y is the line and x is the
             position on that line,
             and every time the function gets 0 return value from a recursive call it resets the current cell value. <br>
-            Any already filled cell or succesful cell validation return call for solver(y, x + 1), and the function only
-            returns 1 (solved)
-            if every cell has been validated.
+            Any already filled cell or succesful cell validation return call for solver(y, x + 1), and validating the final cell 
+            copies to solved sudoku and increases solutions count by 1 before returning 0. <br>
+            If solutions count reaches 2 the function retuns 0 as the sudoku is confrimed to be invalid. <br>
+            The sudoku is confirmed valid if solutions count is exactly 1 after the function has ran its course.
         </P>
         <ul style="text-align: left; background-color: powderblue">
             <li>Solver(y, x) //solver function call with x and y coordinates, 0,0 for first call</li>
+            <ul>
+            <li>Check solutions count: solutions > 1 -> return 0 //sudoku invalid</li>
             <li>Check x -> if (x == 9): x = 0 and y++ //line switch
             </li>
-            <li>Check y -> if (y == 9): return 1 //Sudoku solved, all positions validated</li>
-            <li>Check current position -> if(filled) return Solver(y, x + 1) //Already filled, return recursive solver
+            <li>Check y -> if (y == 9)
+                <ul>
+                    <li>
+                        copy solution to another variable //solution copied for safekeeping
+                    </li>
+                    <li>
+                        solutions++ //solution counter increase
+                    </li>
+                    <li>return 0 //solution found, resetting to check for more solutions</li>
+                </ul>
+            </li>
+            <li>Check current position -> if(filled) return Solver(y, x + 1) //Cell filled, return recursive solver
                 call</li>
             <li>loop i = 1; i <= 9; i++ //loop for validating current cell for 1-9 values<ul>
             <li>sudo[y][x] = i //gives current cell the value of i</li>
@@ -73,7 +83,8 @@
             <li>sudo[y][x] = 0 //validation failed, resetting current cell</li>
         </ul>
         <li>return 0 //validation failed, no valid options for 1-9 values in current cell</li>
-        </li>
+        </li></ul>
+        <li>Check solutions status: if (solutiosn == 1) -> post saved solution</li>
         <br>
         </ul>
         <p style="text-align: center">
