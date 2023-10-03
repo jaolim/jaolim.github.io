@@ -35,58 +35,25 @@
             This is a showcase for a recursive backtracking brute force sudoku solver algorithm. <br>
             In addition to the solver function, there are multiple helper functions for validation and printing but
             the interesting stuff is in the solver. <br>
-            The original implemenetation was written in C for a group project, and this follows the same logic written in
-            JavaScript.
+            The original implemenetation was written in C for a group project, and this follows mostly the same logic translated into JavaScript.
 
         </div>
     </form>
     <form class="max_width">
-        <h2 style="text-align: center">The Solver Algorithm<br></h2>
+        <div style="text-align: center;">
+            <input type="button" value="Dispaly Algorithm Code" onClick="codeDisplay()">
+        </div>
+        <pre id="codeDisplay" style="text-align: left; background-color: powderblue"></pre>
         <P style="text-align: center; background-color: powderblue">
-            The Solver gets x and y (0,0 for full sudoku validation) coordinates as parameters, and starting from
-            those coordinates it follows the sudoku until the end (line 9, position 10) or until the sudoku has been
-            confirmed invalid (unsolvable or multiple solutions).<br>
-            The sudoku being analyzed is saved as a global variable 2d array[y][x] where y is the line and x is the
-            position on that line,
-            and every time the function gets 0 return value from a recursive call it resets the current cell value. <br>
-            Any already filled cell or succesful cell validation return call for solver(y, x + 1), and validating the final cell 
-            copies to solved sudoku and increases solutions count by 1 before returning 0. <br>
-            If solutions count reaches 2 the function retuns 0 as the sudoku is confrimed to be invalid. <br>
-            The sudoku is confirmed valid if solutions count is exactly 1 after the function has ran its course.
+            The solver takes row and number coordinates as paramaters, checks whether any value between 1-9 fits that cell
+            based on the known numbers and calls itself recursively with parameters number + 1 if it does, and returns 0
+            indicating failure if it does not.<br>
+            If the last coordinate (row 9, cell 9) is never reached sudoku is confirmed invalid. <br>
+            If the last coordinate is reached the solution is saved and solution counter is increased by one.
+            After that the function returns 0 to indicate current call branch is finished and searches for more solutions. <br>
+            If more than one solution is found then no more recursive calls are made and the sudoku is confirmed invalid.<br>
+            If the solutions counter is exactly 1 then the sudoku is confirmed valid and the solution is posted by a helper function.<br>
         </P>
-        <ul style="text-align: left; background-color: powderblue">
-            <li>Solver(y, x) //solver function call with x and y coordinates, 0,0 for first call</li>
-            <ul>
-            <li>Check solutions count: solutions > 1 -> return 0 //sudoku invalid</li>
-            <li>Check x -> if (x == 9): x = 0 and y++ //line switch
-            </li>
-            <li>Check y -> if (y == 9)
-                <ul>
-                    <li>
-                        copy solution to another variable //solution copied for safekeeping
-                    </li>
-                    <li>
-                        solutions++ //solution counter increase
-                    </li>
-                    <li>return 0 //solution found, resetting to check for more solutions</li>
-                </ul>
-            </li>
-            <li>Check current position -> if(filled) return Solver(y, x + 1) //Cell filled, return recursive solver
-                call</li>
-            <li>loop i = 1; i <= 9; i++ //loop for validating current cell for 1-9 values<ul>
-            <li>sudo[y][x] = i //gives current cell the value of i</li>
-            <li>if(sudo[y][x] == valid) //validates sudoku current cell
-                <ul>
-                    <li>if (solver(y,x + 1) == valid) -> return 1 //recursive solver call for next position</li>
-                </ul>
-            </li>
-            <li>sudo[y][x] = 0 //validation failed, resetting current cell</li>
-        </ul>
-        <li>return 0 //validation failed, no valid options for 1-9 values in current cell</li>
-        </li></ul>
-        <li>Check solutions status: if (solutiosn == 1) -> post saved solution</li>
-        <br>
-        </ul>
         <p style="text-align: center">
             <input type="text" id="i00" size="1">
             <input type="text" id="i01" size="1">
@@ -179,8 +146,8 @@
             <input type="text" id="i88" size="1">
         </p>
         <div class="align_center">
-            <p style="color: yellow">Enter sudoku in format line followed by space and blick fill: 123456789 987654321 ...</p>
-                <input type="text" id="fill" size="99">
+            <p style="color: yellow">Alternative input: each line 9 characters, space separates the lines</p>
+            <input type="text" id="fill" size="99">
 
         </div>
 
@@ -207,6 +174,7 @@
         let solutions = 0;
         let sudo = [];
         let sudoSolved = [];
+        let displaystatus = 0;
         //let testSudoku = "530070000 600195000 098000060 800060003 400803001 700020006 060000280 000419005 000080079"
         //let testSudokuSolved = "534678912 672195348 198342567 859761423 426853791 713924856 961537284 287419635 345286179"
         for (let i = 0; i < 9; i++) {
@@ -456,6 +424,55 @@
                 }
             }
         }
+
+        function codeDisplay() {
+            let teksti = "";
+
+            if (displaystatus == 1) {
+                displaystatus = 0;
+            }
+
+            else {
+                displaystatus = 1;
+
+                teksti =
+                    "function solver(row, number) {     //solver(0, 0) for the first call<br>" + 
+                    "   let r = row;    //initializing some local variables<br>" +
+                    "   let n = number;<br>" +
+                    "   let i = 1;<br>" +
+                    "   if (n >= 9) {   //line swap<br>" +
+                    "       n = 0;<br>" +
+                    "       r++;<br>" +
+                    "   }<br>" +
+                    "   if (solutions > 1) {    //more than one solution = invalid sudoku<br>" +
+                    "       return 0;<br>" +
+                    "   }<br>" +
+                    "   if (r >= 9) {   //solution found<br>" +
+                    "       copySudoku();    //calling helper function to save the solution<br>" +
+                    "       solutions++;    //+1 to solutions counter<br>" +
+                    "       return 0;   //returns fail state to search for more solutions<br>" +
+                    "   }<br>" +
+                    "   else if (sudo[r][n] != 0) {     //check to skip already filled cells<br>" +
+                    "       return (solver(r, n + 1));  //recursive call with n + 1 to skip a filled cell<br>" +
+                    "   }<br>" +
+                    "   else    //condition for an empty cell{<br> " +
+                    "       while (i <= 9) {    //loop to see if any 1-9 value fits<br>" +
+                    "           sudo[r][n] = i;     //current cell gets i value<br>" +
+                    "           if (valid(r, n) == 1) {     //helper function call to see if current number fits<br>" +
+                    "               if (solver(r, n + 1) == 1) {    //recursive call inside the if condition<br>" +
+                    "                   return 1;   //leftover from earlier implementation, cannot happen<br>" +
+                    "               }<br>" +
+                    "           }<br>" +
+                    "           sudo[r][n] = 0;     //resets current cell to default state<br>" +
+                    "           i++;<br>" +
+                    "       }<br>" +
+                    "   }<br>" +
+                    "   return 0;<br>" +
+                    "}<br>//after this function has run its course another function checks solutions counter and acts accordingly"
+            }
+            document.getElementById("codeDisplay").innerHTML = teksti;
+        }
+
     </script>
 </body>
 
