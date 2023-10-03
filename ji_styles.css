@@ -6,6 +6,13 @@
 }
 
 .max_width {
+    width: 19cm;
+    margin: auto;
+    margin-top: 1cm;
+    margin-bottom: 1cm;
+}
+
+.max_width_temp {
     border-color: blue;
     border-width: 5px;
     border-style: solid;
