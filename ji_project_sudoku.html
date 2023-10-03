@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="ji_styles.css">
+</head>
+
+<body style="background-image: url('background_placeholder_sudo.png')">
+    <form class="max_width_and_height">
+        <div style="text-align: center">
+            <img style="height:8cm" src="sudo_placeholder.png">
+        </div>
+        <h1 style="text-align: center; margin-top:-6.5cm; margin-bottom: 3cm;">Sudoku Solver</h1>
+        <div class="projects_div">
+            <input class="projects" type="button" value="Home" onClick="window.location.href='ji_home.html'">
+            <input class="projects" type="button" value="Perfect Pike Pattiy"
+                onClick="window.location.href='ji_project_patties.html'">
+            <input class="projects" type="button" value="Sudoku Analyzer"
+                onClick="window.location.href='ji_project_sudoku.html'">
+            <input class="projects" type="button" value="Ei käytössä"
+                onClick="window.location.href='ji_project_temp.html'">
+        </div>
+        <br>
+        <div class="search_div">
+            <input type="text" id="search">
+        </div>
+    </form>
+    <form style="text-align: center">
+        <div class="project_image">
+            <img class="project_image" src="sudo_kuvat_placeholder.png
+            ">
+        </div>
+        <div class="project_text">
+            <h1>Sudoku Analyzer</h1>
+            This is a showcase for a recursive backtracking brute force sudoku solver algorithm. <br>
+            In addition to the solver function, there are multiple helper functions for validification and printing but
+            the interesting stuff is in the solver. <br>
+            The original implemenetation was written in C for group project, and this follows the same logic written in
+            JavaScript.
+
+            <h2>The Solver Algorithm<br></h2>
+            The solver 
+
+        </div>
+    </form>
+    <form class="max_width">
+        <h2 style="text-align: center">The Solver Algorithm<br></h2>
+        <P style="text-align: center; background-color: powderblue">
+            The Solver gets x and y (0,0 for full sudoku validification) coordinates as parameters, and starting from
+            those coordinates it follows the sudoku until the end (line 9, position 10) or until the sudoku has been
+            confirmed unsolvable<br>
+            The sudoku being analyzed is saved as a global variable 2d array[y][x] where y is the line and x is the position on that line, 
+            and every time the function gets 0 return value from a recursive call it resets the current cell value. <br>
+            Any already filled cell or succesful cell validificiation return call for solver(y, x + 1), and the function only returns 1 (solved) 
+            if every cell has been validified.
+        </P>
+        <ul style="text-align: left; background-color: powderblue">
+            <li>Solver(y, x) //solver function call with x and y coordinates, 0,0 for first call</li>
+            <li>Check x -> if (x == 9): x = 0 and y++ //line switch
+            </li>
+            <li>Check y -> if (y == 9): return 1 //Sudoku solved, all positions validated</li>
+            <li>Check current position -> if(filled) return Solver(y, x + 1) //Already filled, return recursive solver
+                call</li>
+            <li>loop i = 1; i <= 9; i++ //loop for validating current cell with 1-9 values<ul> 
+            <li>sudo[y][x] = i //gives current cell the value of i</li>
+            <li>if(sudo[y][x] == valid) //validates sudoku current cell
+                <ul><li>if (solver(y,x + 1) == valid) -> return 1 //recursive solver call for next position</li></ul>
+            </li>
+            <li>sudo[y][x] = 0 //validification failed, resetting current cell</li>
+        </ul>
+        <li>return 0 //validification failed, no valid options for 1-9 values in current cell</li>
+        </li>
+        <br>
+        </ul>
+        <p style="text-align: center">
+            <input type="text" id="i00" size="1">
+            <input type="text" id="i01" size="1">
+            <input type="text" id="i02" size="1">
+            <input type="text" id="i03" size="1">
+            <input type="text" id="i04" size="1">
+            <input type="text" id="i05" size="1">
+            <input type="text" id="i06" size="1">
+            <input type="text" id="i07" size="1">
+            <input type="text" id="i08" size="1">
+            <br style="margin-bottom: 0.5em">
+            <input type="text" id="i10" size="1">
+            <input type="text" id="i11" size="1">
+            <input type="text" id="i12" size="1">
+            <input type="text" id="i13" size="1">
+            <input type="text" id="i14" size="1">
+            <input type="text" id="i15" size="1">
+            <input type="text" id="i16" size="1">
+            <input type="text" id="i17" size="1">
+            <input type="text" id="i18" size="1">
+            <br style="margin-bottom: 0.5em">
+            <input type="text" id="i20" size="1">
+            <input type="text" id="i21" size="1">
+            <input type="text" id="i22" size="1">
+            <input type="text" id="i23" size="1">
+            <input type="text" id="i24" size="1">
+            <input type="text" id="i25" size="1">
+            <input type="text" id="i26" size="1">
+            <input type="text" id="i27" size="1">
+            <input type="text" id="i28" size="1">
+            <br style="margin-bottom: 0.5em">
+            <input type="text" id="i30" size="1">
+            <input type="text" id="i31" size="1">
+            <input type="text" id="i32" size="1">
+            <input type="text" id="i33" size="1">
+            <input type="text" id="i34" size="1">
+            <input type="text" id="i35" size="1">
+            <input type="text" id="i36" size="1">
+            <input type="text" id="i37" size="1">
+            <input type="text" id="i38" size="1">
+            <br style="margin-bottom: 0.5em">
+            <input type="text" id="i40" size="1">
+            <input type="text" id="i41" size="1">
+            <input type="text" id="i42" size="1">
+            <input type="text" id="i43" size="1">
+            <input type="text" id="i44" size="1">
+            <input type="text" id="i45" size="1">
+            <input type="text" id="i46" size="1">
+            <input type="text" id="i47" size="1">
+            <input type="text" id="i48" size="1">
+            <br style="margin-bottom: 0.5em">
+            <input type="text" id="i50" size="1">
+            <input type="text" id="i51" size="1">
+            <input type="text" id="i52" size="1">
+            <input type="text" id="i53" size="1">
+            <input type="text" id="i54" size="1">
+            <input type="text" id="i55" size="1">
+            <input type="text" id="i56" size="1">
+            <input type="text" id="i57" size="1">
+            <input type="text" id="i58" size="1">
+            <br style="margin-bottom: 0.5em">
+            <input type="text" id="i60" size="1">
+            <input type="text" id="i61" size="1">
+            <input type="text" id="i62" size="1">
+            <input type="text" id="i63" size="1">
+            <input type="text" id="i64" size="1">
+            <input type="text" id="i65" size="1">
+            <input type="text" id="i66" size="1">
+            <input type="text" id="i67" size="1">
+            <input type="text" id="i68" size="1">
+            <br style="margin-bottom: 0.5em">
+            <input type="text" id="i70" size="1">
+            <input type="text" id="i71" size="1">
+            <input type="text" id="i72" size="1">
+            <input type="text" id="i73" size="1">
+            <input type="text" id="i74" size="1">
+            <input type="text" id="i75" size="1">
+            <input type="text" id="i76" size="1">
+            <input type="text" id="i77" size="1">
+            <input type="text" id="i78" size="1">
+            <br style="margin-bottom: 0.5em">
+            <input type="text" id="i80" size="1">
+            <input type="text" id="i81" size="1">
+            <input type="text" id="i82" size="1">
+            <input type="text" id="i83" size="1">
+            <input type="text" id="i84" size="1">
+            <input type="text" id="i85" size="1">
+            <input type="text" id="i86" size="1">
+            <input type="text" id="i87" size="1">
+            <input type="text" id="i88" size="1">
+        </p>
+        <p>
+            <input type="button" value="Read" onClick="reader()">
+            <input type="button" value="Print" onClick="printer()">
+            <input type="button" value="validifier" onClick="validifier()">
+            <input type="button" value="valid test" onClick="validTest()">
+            <input type="text" id="validRow" size="1">
+            <input type="text" id="validNumber" size="1">
+            <input type="button" value="Fill unsolved" onClick="testFiller(testSudoku)">
+            <input type="button" value="Fill solved" onClick="testFiller(testSudokuSolved)">
+            <input type="button" value="Solver" onClick="solver(0,0)">
+        </p>
+        <div id="sudoku"></div>
+    </form>
+    <form>
+        <div class="align_center">
+            <input class="projects" type="button" value="Contact me!" onClick="window.location.href='ji_contact.html'">
+            <input class="projects" type="button" value="Feedback" onClick="window.location.href='ji_guest.html'">
+            <input class="projects" type="button" value="Home" onClick="window.location.href='ji_home.html'">
+
+        </div>
+    </form>
+
+    <script>
+        let solutions = 0;
+        let sudo = [];
+        let sudoSolved = [];
+        let sudoSolvedCopy = [];
+        let testSudoku = "530070000 600195000 098000060 800060003 400803001 700020006 060000280 000419005 000080079"
+        let testSudokuSolved = "534678912 672195348 198342567 859761423 426853791 713924856 961537284 287419635 345286179"
+        for (let i = 0; i < 9; i++) {
+            sudo[i] = [];
+        }
+        function solver(row, number) {
+            let r = row;
+            let n = number;
+            let i = 1;
+            if (n >= 9) {
+                console.log("Solver: line reset");
+                n = 0;
+                r++;
+            }
+            if (r >= 9) {
+                console.log("Solver: success condition");
+                printer();
+                return 1;
+            }
+            else if (sudo[r][n] != 0) {
+                console.log("Solver filled cell recursive call")
+                return (solver(r, n + 1));
+            }
+            else {
+                while (i <= 9) {
+                    //console.log("Solver while status: ", i);
+                    sudo[r][n] = i;
+                    if (valid(r, n) == 1) {
+                        if (solver(r, n + 1) == 1) {
+                            return 1;
+                        }
+                    }
+                    sudo[r][n] = 0;
+                    i++;
+                }
+            }
+            console.log("Solver: fail condition");
+            return 0;
+        }
+        function reader() {
+            let i = 0;
+            let l = 0;
+            while (i < 9) {
+                sudo[i][l] = document.getElementById("i" + i + l).value;
+                if (sudo[i][l] >= 1 && sudo[i][l] <= 9) {
+                    sudo[i][l] = Number(sudo[i][l]);
+                }
+                else {
+                    sudo[i][l] = 0;
+                }
+                l++;
+                if (l >= 9) {
+                    i++;
+                    l = 0;
+                }
+            }
+        }
+        function printer() {
+            let i = 0;
+            let l = 0;
+            let teksti = "";
+            while (i < 9) {
+                if (l < 9) {
+                    teksti = teksti + " "
+                }
+                teksti = teksti + sudo[i][l];
+                l++;
+                if (l >= 9) {
+                    teksti = teksti + "<br>";
+                    i++;
+                    l = 0;
+                }
+            }
+            document.getElementById("sudoku").innerHTML = teksti;
+        }
+        function validifier() {
+            let i = 0;
+            let l = 0;
+            while (i < 9) {
+                if (sudo[i][l] != 0) {
+                    if (valid(i, l) == 0) {
+                        console.log("validifier: fail");
+                        return 0;
+                    }
+                }
+                l++;
+                if (l >= 9) {
+                    l = 0;
+                    i++;
+                }
+            }
+            console.log("validifier: meni läpi");
+            return 1;
+        }
+        function valid(row, number) {
+            let i = 0;
+            let l = 0;
+
+            if (xAndY(row, number) != 1) {
+                return 0;
+            }
+            return threeByThree(row, number)
+        }
+        function threeByThree(row, number) {
+            let i;
+            let l;
+            let istart;
+            let lstart;
+            if (row <= 2) {
+                i = 0;
+            }
+            else if (row <= 5) {
+                i = 3;
+            }
+            else {
+                i = 6;
+            }
+            if (number <= 2) {
+                l = 0;
+            }
+            else if (number <= 5) {
+                l = 3;
+            }
+            else {
+                l = 6;
+            }
+            istart = i;
+            lstart = l;
+            //console.log("3by3 i = ", i);
+            //console.log("3by3 l = ", l);
+            while (i - istart < 3) {
+                if (row != i || number != l) {
+                    if (sudo[row][number] == sudo[i][l]) {
+                        console.log("3by3: failas");
+                        return 0;
+                    }
+                }
+                l++;
+                if (l - lstart >= 3) {
+                    l = lstart;
+                    i++;
+                }
+            }
+            //console.log("3by3: läpi meni")
+            return 1;
+        }
+        function xAndY(row, number) {
+            let i = row;
+            let l = 0;
+            while (l < 9) {
+                if (sudo[row][number] == sudo[i][l] && l != number) {
+                    //console.log("xAndY l-loop: failas");
+                    return 0;
+                }
+                //console.log("L-loop status: ", l);
+                l++;
+            }
+            i = 0;
+            l = number;
+            while (i < 9) {
+                if (sudo[row][number] == sudo[i][l] && i != row) {
+                    //console.log("xAndY i-loop: failas");
+                    return 0;
+                }
+                //console.log("i-loop status: ", i)
+                i++;
+            }
+            //console.log("xAndY: meni läpi")
+            return 1;
+        }
+        function validTest() {
+            let y = Number(document.getElementById("validRow").value);
+            let x = Number(document.getElementById("validNumber").value);
+            console.log("Valid test: ", valid(y, x));
+        }
+        //            <input type="text" id="i00" size="1">
+        function testFiller(sudo) {
+            let i = 0;
+            let l = 0;
+            let counter = 0;
+            while (i < 9) {
+                if (sudo.charAt(counter) == " ") {
+                    counter++;
+                }
+                document.getElementById("i" + i + l).value = sudo.charAt(counter);
+                counter++;
+                l++;
+                if (l >= 9) {
+                    l = 0;
+                    i++;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
