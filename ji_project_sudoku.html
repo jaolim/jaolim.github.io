@@ -167,15 +167,15 @@
             <input type="text" id="i88" size="1">
         </p>
         <div class="align_center">
-            <p style="color: blue">Alternative input: each row 9 characters, space separates the rows</p>
+            <p style="color: blue">Alternative input: each row 9 characters, space separates the rows, press fill</p>
             <input type="text" id="fill" size="85">
 
         </div>
 
-        <p class="align_center" style="padding-bottom: 1cm">
-            <input type="button" value="Print" onClick="printer(sudo)">
+        <p style="padding-bottom: 1cm; text-align: center">
+            <!--<input type="button" value="Print" onClick="printer(sudo)">
             <input type="button" value="Copy" onClick="copySudoku()">
-            <input type="button" value="Print Copy" onClick="printer(sudoSolved)">
+            <input type="button" value="Print Copy" onClick="printer(sudoSolved)">-->
             <input type="button" value="Fill" onClick="filler()">
             <input type="button" value="Solver" onClick="readAndSolve()">
         </p>
@@ -265,11 +265,11 @@
             }
             else if (solutions > 1) {
                 teksti = "Sudoku invalid: multiple solutions";
-                printer(sudo);
+                printer(sudoSolved);
             }
             else {
                 teksti = "Sudoku invalid: no solutions";
-                printer(sudo);
+                printer(sudoSolved);
             }
             teksti = "<h1>" + teksti + lisa + "</h1>"
             document.getElementById("status").innerHTML = teksti;
