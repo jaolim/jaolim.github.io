@@ -22,7 +22,8 @@
         </div>
         <br>
         <div class="search_div">
-            <input type="text" id="search">
+            <input type="text" id="search" placeholder="Search for pages!">
+            <input type="button" value="Search" onClick="searchFor()">
         </div>
     </form>
     <form style="text-align: center">
@@ -30,13 +31,14 @@
             <img class="project_image" src="sudo_kuvat_placeholder.png
             ">
         </div>
-        <div class="project_text">
+        <div class="project_text" style="background-color:rgb(192, 192, 219)">
             <h1>Sudoku Analyzer</h1>
             This is a showcase for a recursive backtracking brute force sudoku solver algorithm. <br>
             In addition to the solver function, there are multiple helper functions for validation and printing but
             the interesting stuff is in the solver. <br>
-            The original implemenetation was written in C for a group project, and this follows mostly the same logic translated into JavaScript.
-
+            The original implemenetation I worked on was written in C for a group project, and this follows mostly the
+            same logic translated into JavaScript.<br>
+            It's the best known sudoku solver method and a good general showcase for a recursive backtracker.
         </div>
     </form>
     <form class="max_width">
@@ -45,14 +47,24 @@
         </div>
         <pre id="codeDisplay" style="text-align: left; background-color: powderblue"></pre>
         <P style="text-align: center; background-color: powderblue">
-            The solver takes row and number coordinates as paramaters, checks whether any value between 1-9 fits that cell
-            based on the known numbers and calls itself recursively with parameters number + 1 if it does, and returns 0
-            indicating failure if it does not.<br>
-            If the last coordinate (row 9, cell 9) is never reached sudoku is confirmed invalid. <br>
-            If the last coordinate is reached the solution is saved and solution counter is increased by one.
-            After that the function returns 0 to indicate current call branch is finished and searches for more solutions. <br>
-            If more than one solution is found then no more recursive calls are made and the sudoku is confirmed invalid.<br>
-            If the solutions counter is exactly 1 then the sudoku is confirmed valid and the solution is posted by a helper function.<br>
+        <ul style="background-color: powderblue">
+            <li>The solver gets a single cell's coordinates as parameters and determines if that cell meets the criteria
+                to call itself with next cell's coordinates</li>
+            <li>The solver saves the currently looked at value 1-9 in the current cell before recursive call and wipes it if a fail state is returned
+                <ul>
+                    <li>This solves the issue of keeping track of the progress since any failed branch unravels into its starter state</li>
+                </ul>
+            </li>
+            <li>The function goes through the cells until the sudoku has been confirmed having no solutions, having
+                more than 1 solution, or having exactly 1 solution</li>
+            <li>At any of those points no further calls are made, and another function prints the sudoku status based on
+                global vairables saved in key conditions during the solver calls
+                <ul>
+                    <li>Solutions count: add +1 each time end condition is met up to 2</li>
+                    <li>Solved sodoku: copy from the currently analyzed sudoku when end condition is met for the first time</li>
+                </ul>
+            </li>
+        </ul>
         </P>
         <p style="text-align: center">
             <input type="text" id="i00" size="1">
@@ -146,7 +158,7 @@
             <input type="text" id="i88" size="1">
         </p>
         <div class="align_center">
-            <p style="color: yellow">Alternative input: each line 9 characters, space separates the lines</p>
+            <p style="color: yellow">Alternative input: each row 9 characters, space separates the lines</p>
             <input type="text" id="fill" size="99">
 
         </div>
@@ -170,6 +182,7 @@
         </div>
     </form>
 
+    <script src="ji_scripts.js"></script>
     <script>
         let solutions = 0;
         let sudo = [];
@@ -178,7 +191,7 @@
         //let testSudoku = "530070000 600195000 098000060 800060003 400803001 700020006 060000280 000419005 000080079"
         //let testSudokuSolved = "534678912 672195348 198342567 859761423 426853791 713924856 961537284 287419635 345286179"
         for (let i = 0; i < 9; i++) {
-            sudo[i] = []; //"0", "0", "0", "0", "0", "0", "0", "0", "0"
+            sudo[i] = [];
             sudoSolved[i] = [];
         }
 
@@ -237,13 +250,15 @@
             }
             if (solutions == 1) {
                 teksti = "Sudoku valid";
-                printer(sudoSolved)
+                printer(sudoSolved);
             }
             else if (solutions > 1) {
                 teksti = "Sudoku invalid: multiple solutions";
+                printer(sudo);
             }
             else {
                 teksti = "Sudoku invalid: no solutions";
+                printer(sudo);
             }
             teksti = "<h1>" + teksti + lisa + "</h1>"
             document.getElementById("status").innerHTML = teksti;
@@ -297,7 +312,7 @@
                 teksti = teksti + sudo[i][l];
                 l++;
                 if (l >= 9) {
-                    teksti = teksti + "<br>";
+                    teksti = teksti + " |<br>";
                     i++;
                     l = 0;
                 }
@@ -436,11 +451,11 @@
                 displaystatus = 1;
 
                 teksti =
-                    "function solver(row, number) {     //solver(0, 0) for the first call<br>" + 
+                    "function solver(row, number) {     //solver(0, 0) for the first call<br>" +
                     "   let r = row;    //initializing some local variables<br>" +
                     "   let n = number;<br>" +
                     "   let i = 1;<br>" +
-                    "   if (n >= 9) {   //line swap<br>" +
+                    "   if (n >= 9) {   //row swap<br>" +
                     "       n = 0;<br>" +
                     "       r++;<br>" +
                     "   }<br>" +
@@ -455,19 +470,19 @@
                     "   else if (sudo[r][n] != 0) {     //check to skip already filled cells<br>" +
                     "       return (solver(r, n + 1));  //recursive call with n + 1 to skip a filled cell<br>" +
                     "   }<br>" +
-                    "   else    //condition for an empty cell{<br> " +
+                    "   else {      //condition for an empty cell<br> " +
                     "       while (i <= 9) {    //loop to see if any 1-9 value fits<br>" +
                     "           sudo[r][n] = i;     //current cell gets i value<br>" +
                     "           if (valid(r, n) == 1) {     //helper function call to see if current number fits<br>" +
                     "               if (solver(r, n + 1) == 1) {    //recursive call inside the if condition<br>" +
-                    "                   return 1;   //leftover from earlier implementation, cannot happen<br>" +
+                    "                   return 1;   //leftover from an earlier implementation, cannot happen<br>" +
                     "               }<br>" +
                     "           }<br>" +
                     "           sudo[r][n] = 0;     //resets current cell to default state<br>" +
                     "           i++;<br>" +
                     "       }<br>" +
                     "   }<br>" +
-                    "   return 0;<br>" +
+                    "   return 0;   //no number 1-9 fit, returning fail state to terminate this branch<br>" +
                     "}<br>//after this function has run its course another function checks solutions counter and acts accordingly"
             }
             document.getElementById("codeDisplay").innerHTML = teksti;
