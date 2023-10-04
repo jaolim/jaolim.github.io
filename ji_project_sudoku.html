@@ -45,28 +45,37 @@
         <div style="text-align: center;">
             <input type="button" value="Dispaly Algorithm Code" onClick="codeDisplay()">
         </div>
-        <pre id="codeDisplay" style="text-align: left; background-color: powderblue"></pre>
-        <P style="text-align: center; background-color: powderblue">
-        <ul style="background-color: powderblue">
-            <li>The solver gets a single cell's coordinates as parameters and determines if that cell meets the criteria
-                to call itself with next cell's coordinates</li>
-            <li>The solver saves the currently looked at value 1-9 in the current cell before recursive call and wipes it if a fail state is returned
-                <ul>
-                    <li>This solves the issue of keeping track of the progress since any failed branch unravels into its starter state</li>
-                </ul>
-            </li>
-            <li>The function goes through the cells until the sudoku has been confirmed having no solutions, having
-                more than 1 solution, or having exactly 1 solution</li>
-            <li>At any of those points no further calls are made, and another function prints the sudoku status based on
-                global vairables saved in key conditions during the solver calls
-                <ul>
-                    <li>Solutions count: add +1 each time end condition is met up to 2</li>
-                    <li>Solved sodoku: copy from the currently analyzed sudoku when end condition is met for the first time</li>
-                </ul>
-            </li>
-        </ul>
-        </P>
-        <p style="text-align: center">
+        <div style="background-color: powderblue">
+            <pre id="codeDisplay" style="text-align: left;"></pre>
+            <P style="text-align: center; background-color: powderblue">
+            <h2 style="text-align: center">Explanation</h2>
+            <ul style="background-color: powderblue">
+                <li>The solver gets a single cell's coordinates as parameters and determines if that cell meets the
+                    criteria
+                    to call itself with next cell's coordinates</li>
+                <li>The solver saves the currently looked at value 1-9 in the current cell before recursive call and
+                    wipes it if a fail state is returned
+                    <ul>
+                        <li>This solves the issue of keeping track of the progress since any failed branch unravels into
+                            its starter state</li>
+                    </ul>
+                </li>
+                <li>The function goes through the cells until the sudoku has been confirmed having no solutions, having
+                    more than 1 solution, or having exactly 1 solution</li>
+                <li>At any of those points no further calls are made, and another function prints the sudoku status
+                    based on
+                    global vairables saved in key conditions during the solver calls
+                    <ul>
+                        <li>Solutions count: add +1 each time end condition is met up to 2</li>
+                        <li>Solved sodoku: copy from the currently analyzed sudoku when end condition is met for the
+                            first time</li>
+                    </ul>
+                </li>
+            </ul>
+            </P>
+        </div>
+        <div style="background-color:antiquewhite; padding-bottom:1cm; padding-top:1cm;">
+        <p style="text-align: center;">
             <input type="text" id="i00" size="1">
             <input type="text" id="i01" size="1">
             <input type="text" id="i02" size="1">
@@ -158,12 +167,12 @@
             <input type="text" id="i88" size="1">
         </p>
         <div class="align_center">
-            <p style="color: yellow">Alternative input: each row 9 characters, space separates the lines</p>
-            <input type="text" id="fill" size="99">
+            <p style="color: blue">Alternative input: each row 9 characters, space separates the rows</p>
+            <input type="text" id="fill" size="85">
 
         </div>
 
-        <p class="align_center">
+        <p class="align_center" style="padding-bottom: 1cm">
             <input type="button" value="Print" onClick="printer(sudo)">
             <input type="button" value="Copy" onClick="copySudoku()">
             <input type="button" value="Print Copy" onClick="printer(sudoSolved)">
@@ -172,6 +181,7 @@
         </p>
         <div class="align_center" id="status"></div>
         <div class="align_center" id="sudoku"></div>
+    </div>
     </form>
     <form>
         <div class="align_center">
@@ -184,6 +194,7 @@
 
     <script src="ji_scripts.js"></script>
     <script>
+        "use strict;"
         let solutions = 0;
         let sudo = [];
         let sudoSolved = [];
