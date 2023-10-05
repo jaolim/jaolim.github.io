@@ -5,11 +5,11 @@
     <title>Sudoku Solver</title>
     <link rel="stylesheet" href="ji_styles.css">
 </head>
-
-<body style="background-image: url('sudo_background_city.png')"> <!--source: https://phys.org/news/2019-05-income-affects-bus-ridership-bad.html-->
+<!--style="background-image: url('sudo_background_city.png')-->
+<body style="background-image: url('sudo_background_stars.png')"> <!--source: https://opengameart.org/sites/default/files/Starbasesnow_0.png-->
     <form class="max_width_and_height">
         <div style="text-align: center">
-            <img style="height:8cm" src="sudo_top.png" alt="" title="source: https://www.peakpx.com/524599/yellow-pencil-sudoku-paper/1280x720-wallpaper">
+            <img style="height:8cm;" src="sudo_top.png" alt="" title="source: https://www.peakpx.com/524599/yellow-pencil-sudoku-paper/1280x720-wallpaper">
         </div>
         <h1 style="text-align: center; margin-top:-6.5cm; margin-bottom: 1.5cm; color: rgb(45, 45, 158); -webkit-text-stroke: 2px orange; font-size: 2cm">Sudoku Solver</h1>
         <div class="projects_div">
@@ -18,8 +18,6 @@
                 onClick="window.location.href='ji_project_patties.html'">
             <input class="projects" type="button" value="Sudoku Solver"
                 onClick="window.location.href='ji_project_sudoku.html'">
-            <input class="projects" type="button" value="Ei käytössä"
-                onClick="window.location.href='ji_project_temp.html'">
         </div>
         <br>
         <div class="search_div">
@@ -29,7 +27,7 @@
     </form>
     <form class="search_results">
         <div style="text-align: center">
-            <p id="results" style="text-align: left;"></p>
+            <p id="results" style="text-align: left; background-color: white"></p>
         </div>
     </form>
     <form style="text-align: center">
@@ -39,25 +37,29 @@
         <!--background-color:rgb(192, 192, 219);-->
         <div class="project_text">
             <h1 style="-webkit-text-stroke: 1px orange;">The Algorithm</h1>
-            <p style="background-color:rgb(192, 192, 219); padding-bottom: 0.5cm">
+            <!--background-color:rgb(192, 192, 219, 0.8)-->
+
+            <div class="text_outline_black"style="padding-bottom: 0.5cm;font-size: 17px; color:azure;">
             This is a showcase for a recursive backtracking brute force sudoku solver algorithm. <br>
-            In addition to the solver function, there are multiple helper functions for validation and printing but
+            In addition to the solver function, there are multiple helper functions for validation and printing, but
             the interesting stuff is in the solver. <br>
             The original implemenetation I worked on was written in C for a group project, and this follows mostly the
             same logic translated into JavaScript.<br><br>
             It's the best known sudoku solver method and a good general showcase for a recursive backtracker.
-            </p>
+    </div>
         </div>
     </form>
     <form class="max_width">
-        <div style="text-align: center;">
-            <input type="button" value="Display Algorithm Code" onClick="codeDisplay()">
+        <div style="text-align: center">
+            <input type="button" value="Toggle Algorithm Code" onClick="codeDisplay()">
         </div>
-        <div style="background-color: powderblue; margin-bottom: 1cm; padding-bottom: 0.1cm;">
-            <pre id="codeDisplay" style="text-align: left;"></pre>
+        <div class="max_width_noscale" style="font-size: 20">
+            <pre id="codeDisplay" style="text-align: left; background-color: rgb(255, 255, 255)"></pre>
+        </div>
+        <div class="text_outline_black" style="margin-bottom: 1cm; padding-bottom: 0.1cm; color:azure;">
             <P style="text-align: center; background-color: powderblue">
-            <h2 style="text-align: center">Explanation</h2>
-            <ul style="background-color: powderblue">
+            <h2 style="text-align: center;">Explanation</h2>
+            <ul style="font-size: 17px">
                 <li>The solver gets a single cell's coordinates as parameters and determines if that cell meets the
                     criteria
                     to call itself with the next cell's coordinates</li>
@@ -82,8 +84,9 @@
             </ul>
             </P>
         </div>
-        <div style="background-color:antiquewhite; padding-bottom:1cm;">
-        <h2 style="text-align: center">Fill and click Solve</h2>
+        <!--background-color: rgb(250, 235, 215, 1)-->
+        <div style="background-color: rgb(78, 52, 75, 0.8); padding-bottom:1cm;">
+        <h2 style="text-align: center; color:white">Try it in practice: fill and click solve!</h2>
         <p style="text-align: center;">
             <input type="text" id="i00" size="1">
             <input type="text" id="i01" size="1">
@@ -176,7 +179,7 @@
             <input type="text" id="i88" size="1">
         </p>
         <div class="align_center">
-            <p style="color: blue">Alternative input: 1-9 for filled, any other character for unfilled and between lines
+            <p style="color: rgb(251, 255, 0)">Alternative input: 1-9 for filled, any other character for unfilled and between lines
             <input type="button" value="Fill" onClick="fillerRedirect()">
             <input type="button" value="Fetch valid (6 examples)" onClick="generateValid()"></p>
             <input type="text" id="fill" size="85" placeholder="120456098 650980321 ...">
@@ -189,14 +192,13 @@
             <input type="button" value="Print Copy" onClick="printer(sudoSolved)">-->
             <input type="button" value="Solve" onClick="readAndSolve()">
         </p>
-        <div class="align_center" id="status"></div>
-        <div class="align_center" id="sudoku"></div>
+        <div class="align_center" id="status" style="color:antiquewhite"></div>
+        <div class="align_center" id="sudoku" style="color:antiquewhite"></div>
     </div>
     </form>
     <form>
         <div class="align_center">
             <input class="projects" type="button" value="Contact me!" onClick="window.location.href='ji_contact.html'">
-            <input class="projects" type="button" value="Feedback" onClick="window.location.href='ji_guest.html'">
             <input class="projects" type="button" value="Home" onClick="window.location.href='ji_home.html'">
 
         </div>
@@ -498,7 +500,7 @@
                     "       while (i <= 9) {    //loop to see if any 1-9 value fits<br>" +
                     "           sudo[r][n] = i;     //current cell gets i value<br>" +
                     "           if (valid(r, n) == 1) {     //helper function call to see if current number fits<br>" +
-                    "               if (solver(r, n + 1) == 1) {    //recursive call inside the if condition<br>" +
+                    "               if (solver(r, n + 1) == 1) {    //recursive call inside the if clause<br>" +
                     "                   return 1;   //leftover from an earlier implementation, cannot happen<br>" +
                     "               }<br>" +
                     "           }<br>" +
@@ -507,7 +509,7 @@
                     "       }<br>" +
                     "   }<br>" +
                     "   return 0;   //no number 1-9 fit, returning fail state to terminate this branch<br>" +
-                    "}<br>//after this function has run its course another function checks solution counter and acts accordingly"
+                    "}<br>//this function has finished and another function handles the rest"
             }
             document.getElementById("codeDisplay").innerHTML = teksti;
 
@@ -521,7 +523,7 @@
                     "008072000 000050060 900608500 090010435 001004200 000065001 805003009 074000600 000700308",
                     "009813057 530607080 807000013 070080560 900451378 005030420 000175000 000009740 703000000"]
 
-                filler(sudoku[Math.floor(Math.random()*sudoku.length)])
+                filler(sudoku[Math.floor(Math.random()*sudoku.length)]);
             }
 
     </script>
