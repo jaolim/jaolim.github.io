@@ -6,15 +6,15 @@
     <link rel="stylesheet" href="ji_styles.css">
 </head>
 
-<body style="background-image: url('background_placeholder_sudo.png')">
+<body style="background-image: url('sudo_background_city.png')"> <!--source: https://phys.org/news/2019-05-income-affects-bus-ridership-bad.html-->
     <form class="max_width_and_height">
         <div style="text-align: center">
-            <img style="height:8cm" src="sudo_placeholder.png" alt="">
+            <img style="height:8cm" src="sudo_top.png" alt="" title="source: https://www.rawpixel.com/image/5941104/free-public-domain-cc0-photo">
         </div>
-        <h1 style="text-align: center; margin-top:-6.5cm; margin-bottom: 3cm;">Sudoku Solver</h1>
+        <h1 style="text-align: center; margin-top:-6.5cm; margin-bottom: 1.5cm; color: blue; -webkit-text-stroke: 2px orange; font-size: 2cm">Sudoku Solver</h1>
         <div class="projects_div">
             <input class="projects" type="button" value="Home" onClick="window.location.href='ji_home.html'">
-            <input class="projects" type="button" value="Perfect Pike Pattiy"
+            <input class="projects" type="button" value="Perfect Pike Patty"
                 onClick="window.location.href='ji_project_patties.html'">
             <input class="projects" type="button" value="Sudoku Analyzer"
                 onClick="window.location.href='ji_project_sudoku.html'">
@@ -23,7 +23,7 @@
         </div>
         <br>
         <div class="search_div">
-            <input type="text" id="search" placeholder="Search for pages!">
+            <input type="text" id="search" placeholder="Search for page titles!">
             <input type="button" value="Search" onClick="searchFor()">
         </div>
     </form>
@@ -34,30 +34,33 @@
     </form>
     <form style="text-align: center">
         <div class="project_image">
-            <img class="project_image" src="sudo_kuvat_placeholder.png" alt="">
+            <img class="project_image" src="sudo_project.gif" alt="" title="source: https://en.wikipedia.org/wiki/File:Sudoku_solved_by_bactracking.gif">
         </div>
-        <div class="project_text" style="background-color:rgb(192, 192, 219)">
-            <h1>Sudoku Analyzer</h1>
+        <!--background-color:rgb(192, 192, 219);-->
+        <div class="project_text">
+            <h1 style="-webkit-text-stroke: 1px orange;">Sudoku Solver</h1>
+            <p style="background-color:rgb(192, 192, 219); padding-bottom: 0.5cm">
             This is a showcase for a recursive backtracking brute force sudoku solver algorithm. <br>
             In addition to the solver function, there are multiple helper functions for validation and printing but
             the interesting stuff is in the solver. <br>
             The original implemenetation I worked on was written in C for a group project, and this follows mostly the
-            same logic translated into JavaScript.<br>
+            same logic translated into JavaScript.<br><br>
             It's the best known sudoku solver method and a good general showcase for a recursive backtracker.
+            </p>
         </div>
     </form>
     <form class="max_width">
         <div style="text-align: center;">
             <input type="button" value="Dispaly Algorithm Code" onClick="codeDisplay()">
         </div>
-        <div style="background-color: powderblue">
+        <div style="background-color: powderblue; margin-bottom: 1cm; padding-bottom: 0.1cm">
             <pre id="codeDisplay" style="text-align: left;"></pre>
             <P style="text-align: center; background-color: powderblue">
             <h2 style="text-align: center">Explanation</h2>
             <ul style="background-color: powderblue">
                 <li>The solver gets a single cell's coordinates as parameters and determines if that cell meets the
                     criteria
-                    to call itself with next cell's coordinates</li>
+                    to call itself with the next cell's coordinates</li>
                 <li>The solver saves the currently looked at value 1-9 in the current cell before recursive call and
                     wipes it if a fail state is returned
                     <ul>
@@ -79,7 +82,8 @@
             </ul>
             </P>
         </div>
-        <div style="background-color:antiquewhite; padding-bottom:1cm; padding-top:1cm;">
+        <div style="background-color:antiquewhite; padding-bottom:1cm;">
+        <h2 style="text-align: center">Fill and click Solve</h2>
         <p style="text-align: center;">
             <input type="text" id="i00" size="1">
             <input type="text" id="i01" size="1">
@@ -172,8 +176,9 @@
             <input type="text" id="i88" size="1">
         </p>
         <div class="align_center">
-            <p style="color: blue">Alternative input, press fill button after filling</p>
-            <input type="text" id="fill" size="85" placeholder="123456798 987654231 ...">
+            <p style="color: blue">Alternative input: any character other than 1 to 9 = empty cell
+            <input type="button" value="Fill" onClick="filler()"></p>
+            <input type="text" id="fill" size="85" placeholder="120456098 650980321 ...">
 
         </div>
 
@@ -181,8 +186,7 @@
             <!--<input type="button" value="Print" onClick="printer(sudo)">
             <input type="button" value="Copy" onClick="copySudoku()">
             <input type="button" value="Print Copy" onClick="printer(sudoSolved)">-->
-            <input type="button" value="Fill" onClick="filler()">
-            <input type="button" value="Solver" onClick="readAndSolve()">
+            <input type="button" value="Solve" onClick="readAndSolve()">
         </p>
         <div class="align_center" id="status"></div>
         <div class="align_center" id="sudoku"></div>

@@ -1,5 +1,6 @@
 let index = ["home", "contact me!", "feedback", "perfect pike patty", "sudoku analyzer", "secret template"]
 let address = ["ji_home.html", "ji_contact.html", "ji_guest.html", "ji_project_patties.html", "ji_project_sudoku.html", "ji_project_temp.html"]
+let titles = ["Home", "Contact me!", "Feedback", "The Pike Patties", "Sudoku Solver", "Project Template"]
 
 function searchFor(){
     let text = document.getElementById("search").value.trim().toLowerCase();
@@ -9,7 +10,7 @@ function searchFor(){
 
     for (let i = 0; i < index.length; i++){
         if (index[i].includes(text)){
-            results = results + "<li> <a href=" + address[i] + ">" + address[i] + "</a></li>"
+            results = results + "<li> <a href=" + address[i] + ">" + titles[i] + "</a></li>"
             matches++;
         }
     }

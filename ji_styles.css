@@ -82,12 +82,12 @@
 }
 .project_image {
     width: 9cm;
-    height: 8;
+    height: 8cm;
     display: inline-block;
 }
 .project_image_temp {
     width: 9cm;
-    height: 8;
+    height: 8cm;
     border-width: 2px;
     border-style: solid;
     border-color: green;
