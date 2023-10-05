@@ -106,3 +106,7 @@
     display: inline-block;
     vertical-align: top;
 }
+.search_results {
+    width: 6cm;
+    margin: auto;
+}
