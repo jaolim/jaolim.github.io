@@ -1,4 +1,4 @@
-let index = ["home", "contact me!", "feedback", "perfect pike patty", "sudoku analyzer", "secret template"]
+let index = ["home", "contact me!", "feedback", "perfect pike patty", "sudoku solver", "secret template"]
 let address = ["ji_home.html", "ji_contact.html", "ji_guest.html", "ji_project_patties.html", "ji_project_sudoku.html", "ji_project_temp.html"]
 let titles = ["Home", "Contact me!", "Feedback", "The Pike Patties", "Sudoku Solver", "Project Template"]
 
