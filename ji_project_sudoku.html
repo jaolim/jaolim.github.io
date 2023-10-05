@@ -176,8 +176,9 @@
             <input type="text" id="i88" size="1">
         </p>
         <div class="align_center">
-            <p style="color: blue">Alternative input: any character other than 1 to 9 = empty cell
-            <input type="button" value="Fill" onClick="filler()"></p>
+            <p style="color: blue">Alternative input: 1-9 for filled, any other character for unfilled and between lines
+            <input type="button" value="Fill" onClick="fillerRedirect()">
+            <input type="button" value="Fetch valid (6 examples)" onClick="generateValid()"></p>
             <input type="text" id="fill" size="85" placeholder="120456098 650980321 ...">
 
         </div>
@@ -315,7 +316,7 @@
                         break;
                     }
                 }
-                console.log("i: ", i, "l: ", l, "sudo: ", sudo[i][l]);
+                //console.log("i: ", i, "l: ", l, "sudo: ", sudo[i][l]);
                 sudoSolved[i][l] = sudo[i][l];
                 l++;
             }
@@ -441,25 +442,28 @@
             // console.log("Valid test: ", valid(y, x));
         }
         //            <input type="text" id="i00" size="1">
-        function filler() {
+
+        function fillerRedirect(){
+            let sudo = document.getElementById("fill").value.trim();
+            filler(sudo);
+        }
+
+        function filler(sudo) {
             let i = 0;
             let l = 0;
             let counter = 0;
-            let sudo = document.getElementById("fill").value.trim();
             while (i < 9) {
-                if (sudo.charAt(counter) == " ") {
-                    counter++;
-                }
                 document.getElementById("i" + i + l).value = sudo.charAt(counter);
                 counter++;
                 l++;
                 if (l >= 9) {
+                    counter++;
                     l = 0;
                     i++;
                 }
             }
         }
-
+        
         function codeDisplay() {
             let teksti = "";
 
@@ -506,7 +510,19 @@
                     "}<br>//after this function has run its course another function checks solution counter and acts accordingly"
             }
             document.getElementById("codeDisplay").innerHTML = teksti;
+
         }
+
+        function generateValid(){
+                let sudoku = ["530070000 600195000 098000060 800060003 400803001 700020006 060000280 000419005 000080079", 
+                    "830000009 000050000 006407200 005020000 000010300 600305080 000100000 040000020 007603400",
+                    "006000900 382000000 004000605 000000008 000208060 400300002 030040000 000050170 700006000",
+                    "130500070 000030002 760900500 000000903 900003080 000091004 870600305 000004000 009150006",
+                    "008072000 000050060 900608500 090010435 001004200 000065001 805003009 074000600 000700308",
+                    "009813057 530607080 807000013 070080560 900451378 005030420 000175000 000009740 703000000"]
+
+                filler(sudoku[Math.floor(Math.random()*sudoku.length)])
+            }
 
     </script>
 </body>
