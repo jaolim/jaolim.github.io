@@ -1,6 +1,7 @@
 .background_light_gray {
     background-color: RGB(219 219 219);
 }
+
 .background_purple {
     background-color: rgb(165, 120, 165);
 }
@@ -50,6 +51,7 @@
     margin-top: auto;
     margin-bottom: 1cm;
 }
+
 .max_width_and_height_temp {
     border-color: blue;
     border-width: 5px;
@@ -93,11 +95,13 @@
 .align_center {
     text-align: center;
 }
+
 .project_image {
     width: 9cm;
     height: 8cm;
     display: inline-block;
 }
+
 .project_image_temp {
     width: 9cm;
     height: 8cm;
@@ -106,11 +110,13 @@
     border-color: green;
     display: inline-block;
 }
+
 .project_text {
     width: 9.5cm;
     display: inline-block;
     vertical-align: top;
 }
+
 .project_text_temp {
     width: 9.5cm;
     border-width: 2px;
@@ -119,11 +125,13 @@
     display: inline-block;
     vertical-align: top;
 }
+
 .search_results {
     width: 6cm;
     margin: auto;
 }
-.dashed_line{
+
+.dashed_line {
     border-width: 4px;
     border-style: dashed;
     border-color: rgb(0, 0, 0);
@@ -132,9 +140,14 @@
 
 .text_outline_black {
     color: azure;
-	text-shadow:
-		-1px -1px 0 #000,
-		1px -1px 0 #000,
-		-1px 1px 0 #000,
-		1px 1px 0 #000;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+.top_image {
+    max-height: 9cm;
+    max-width: 100% !important;
 }
