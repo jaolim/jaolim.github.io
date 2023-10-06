@@ -98,13 +98,13 @@
 
 .project_image {
     width: 9cm;
-    height: 8cm;
+    max-width: 95%;
     display: inline-block;
 }
 
 .project_image_temp {
     width: 9cm;
-    height: 8cm;
+    max-width: 95%;
     border-width: 2px;
     border-style: solid;
     border-color: green;
@@ -113,12 +113,14 @@
 
 .project_text {
     width: 9.5cm;
+    max-width: 100%;
     display: inline-block;
     vertical-align: top;
 }
 
 .project_text_temp {
     width: 9.5cm;
+    max-width: 100%;
     border-width: 2px;
     border-style: solid;
     border-color: rgb(34, 0, 128);
@@ -150,6 +152,7 @@
 .top_image {
     max-height: 9cm;
     max-width: 100% !important;
+    border-radius: 20%;
 }
 
 .top_h1 {
