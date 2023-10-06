@@ -12,7 +12,7 @@ function searchFor() {
     if (text == "") {
         results = "<input type=\"button\" value=\"X\" onClick=\"hideResults()\" style=\"color:red;\"> <p style=\"text-align: center; padding-bottom: 0.5cm\">Please type something to search!</p>"
         document.getElementById("results").innerHTML = results;
-        return; 
+        return;
     }
     else {
         for (let i = 0; i < index.length; i++) {
