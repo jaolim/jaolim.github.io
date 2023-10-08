@@ -3,7 +3,12 @@ body {
 }
 
 .background_image {
-    background-position: center;
+    background-position-x: center;
+    background-position-y: top;
+}
+
+.background_image_fixed {
+    background-attachment: fixed
 }
 
 .background_light_gray {
