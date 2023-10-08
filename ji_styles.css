@@ -178,7 +178,7 @@ body {
 
 .top_h1 {
     text-align: center;
-    margin-top: -6.5cm;
+    margin-top: max(-6.5cm, -50%);
     margin-bottom: 1.5cm;
     font-size: 2cm;
     padding-top: 0.2cm;
@@ -224,5 +224,14 @@ a.links:active{
     border-width: 5px;
     border-style: solid;
     border-radius: 50%;
+}
+
+.label_hidden{
+    visibility: hidden;
+}
+
+.input_field {
+    text-align: center;
+    margin-bottom: 8px;
 }
 
