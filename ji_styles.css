@@ -2,6 +2,10 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.background_image {
+    background-position: center;
+}
+
 .background_light_gray {
     background-color: RGB(219 219 219);
 }
@@ -168,6 +172,47 @@ body {
         1px -1px 0 rgb(240, 255, 255),
         -1px 1px 0 rgb(240, 255, 255),
         1px 1px 0 rgb(240, 255, 255);
+}
+
+.text_outline_orange {
+    text-shadow:
+        -1px -1px 0 orange,
+        1px -1px 0 orange,
+        -1px 1px 0 orange,
+        1px 1px 0 orange;
+}
+
+.text_outline {
+    text-shadow:
+        -1px -1px 0 rgb(206, 187, 187),
+        1px -1px 0 rgb(206, 187, 187),
+        -1px 1px 0 rgb(206, 187, 187),
+        1px 1px 0 rgb(206, 187, 187);
+}
+
+.header_outline_black {
+    text-shadow:
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000;
+}
+
+.header_outline_orange {
+    text-shadow:
+        -2px -2px 0 orange,
+        2px -2px 0 orange,
+        -2px 2px 0 orange,
+        2px 2px 0 orange;
+}
+
+.header_outline_white {
+    color: black;
+    text-shadow:
+        -2px -2px 0 rgb(240, 255, 255),
+        2px -2px 0 rgb(240, 255, 255),
+        -2px 2px 0 rgb(240, 255, 255),
+        2px 2px 0 rgb(240, 255, 255);
 }
 
 .top_image {
