@@ -61,3 +61,6 @@ tests/html_checker_home_first.png
 tests/html_checker_patties_first.png
 tests/html_checker_sudoku_first.png
 tests/css_home_first.png
+tests/css_patties_first.png
+tests/css_sudoku_first.png
+tests/home_accessability_first.png
