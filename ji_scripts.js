@@ -1,6 +1,6 @@
-let index = ["home", "contact me!", "perfect pike patty", "sudoku solver", "secret template"]
-let address = ["ji_home.html", "ji_contact.html", "ji_project_patties.html", "ji_project_sudoku.html", "ji_project_temp.html"]
-let titles = ["Home", "Contact me!", "The Pike Patties", "Sudoku Solver", "Project Template"]
+let index = ["janne's place", "contact me!", "perfect pike patty", "sudoku solver", "secret template"]
+let address = ["index.html", "ji_contact.html", "ji_project_patties.html", "ji_project_sudoku.html", "ji_project_temp.html"]
+let titles = ["Janne's Place", "Contact me!", "The Pike Patties", "Sudoku Solver", "Project Template"]
 
 function searchFor() {
     let text = document.getElementById("search").value.trim().toLowerCase();
