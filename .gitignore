@@ -47,3 +47,10 @@ patties_project - resize backup.jpg
 patties_top backup resize.jpg
 sudo_project - backup before resize.gif
 sudo_top backup resize.jpg
+tests/css_checker_home_first.png
+tests/home_desktop_first.png
+tests/home_mobile_first.png
+tests/patties_desktop_first.png
+tests/patties_mobile_first.png
+tests/sudoku_desktop_first.png
+tests/sudoku_mobile_first.png
