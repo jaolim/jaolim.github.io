@@ -11,43 +11,43 @@
     <link rel="stylesheet" href="ji_styles.css">
 </head>
 
-<body class="background_image" style="background-image: url('sudo_background_stars.webp')">
+<body class="background-image" style="background-image: url('sudo_background_stars.webp')">
     <!--source: https://opengameart.org/sites/default/files/Starbasesnow_0.png-->
-    <form class="max_width">
+    <form class="max-width">
         <div style="text-align: center">
-            <img class="top_image" src="sudo_top.webp" alt=""
+            <img class="top-image" src="sudo_top.webp" alt=""
                 title="source: https://www.peakpx.com/524599/yellow-pencil-sudoku-paper/1280x720-wallpaper">
         </div>
-        <h1 class="top_h1 header_outline_orange" style="color: rgb(45, 45, 158);">
+        <h1 class="top-h1 header-outline-orange" style="color: rgb(45, 45, 158);">
             Sudoku Solver
         </h1>
-        <div class="projects_div text_outline_black">
-            <a class="links_background links" href='index.html'><b>Home</b></a>
-            <a class="links_background links" href='ji_project_patties.html'><b>Pike Patties</b></a>
-            <a class="links_background links" href='ji_project_sudoku.html'><b>Sudoku Solver</b></a>
+        <div class="projects-div text-outline-black">
+            <a class="links-background links" href='index.html'><b>Home</b></a>
+            <a class="links-background links" href='ji_project_patties.html'><b>Pike Patties</b></a>
+            <a class="links-background links" href='ji_project_sudoku.html'><b>Sudoku Solver</b></a>
         </div>
         <br>
-        <div class="search_div">
+        <div class="search-div">
             <input type="text" id="search" placeholder="Search for page titles!">
             <input type="button" value="Search" onClick="searchFor()">
         </div>
     </form>
-    <form class="search_results">
+    <form class="search-results">
         <div style="text-align: center">
             <p id="results" style="text-align: left; background-color: rgb(255, 255, 255, 0.8)"></p>
         </div>
     </form>
     <form style="text-align: center">
-        <div class="project_image">
-            <img class="project_image" src="sudo_project.gif" alt=""
+        <div class="project-image">
+            <img class="project-image" src="sudo_project.gif" alt=""
                 title="source: https://en.wikipedia.org/wiki/File:Sudoku_solved_by_bactracking.gif">
         </div>
         <!--background-color:rgb(192, 192, 219);-->
-        <div class="project_text">
-            <h1 class="text_outline_orange">The Algorithm</h1>
+        <div class="project-text">
+            <h1 class="text-outline-orange">The Algorithm</h1>
             <!--background-color:rgb(192, 192, 219, 0.8)-->
 
-            <div class="text_outline_black" style="padding-bottom: 19px;font-size: 17px; color:azure;">
+            <div class="text-outline-black" style="padding-bottom: 19px;font-size: 17px; color:azure;">
                 This is a showcase of a recursive backtracking brute force sudoku solver algorithm. <br>
                 In addition to the solver function, there are multiple helper functions for validation and printing, but
                 the interesting stuff happens in the solver. <br>
@@ -57,14 +57,14 @@
             </div>
         </div>
     </form>
-    <form class="max_width">
+    <form class="max-width">
         <div style="text-align: center">
             <input type="button" value="Toggle Code Display" onClick="codeDisplay()">
         </div>
-        <div class="max_width_noscale">
+        <div class="max-width-noscale">
             <pre id="codeDisplay" style="text-align: left; background-color: rgb(255, 255, 255)"></pre>
         </div>
-        <div class="text_outline_black" style="margin-bottom: 38px; padding-bottom: 4px; color:azure;">
+        <div class="text-outline-black" style="margin-bottom: 38px; padding-bottom: 4px; color:azure;">
             <h2 style="text-align: center; color:orange">Explanation</h2>
             <ul style="font-size: 17px">
                 <li>The solver gets a single cell's coordinates as parameters and determines if that cell meets the
@@ -94,7 +94,7 @@
         <div style="background-color: rgb(78, 52, 75, 0.8); padding-bottom: 38px; border-radius: 20%">
             <h2 style="text-align: center; color:antiquewhite; padding-top: 19px;">Try it in practice: fill and click
                 solve!</h2>
-            <div class="input_field">
+            <div class="input-field">
                 <input type="text" id="i00" style="width: 17px">
                 <input type="text" id="i01" style="width: 17px">
                 <input type="text" id="i02" style="width: 17px">
@@ -186,7 +186,7 @@
                 <input type="text" id="i88" style="width: 17px">
                 <div style="margin-bottom: 4px"></div>
             </div>
-            <div class="align_center">
+            <div class="align-center">
                 <p style="color: rgb(251, 255, 0)">
                     <input style="margin-bottom: 10px;" type="button" value="Fetch valid (6 examples)"
                         onClick="generateValid()">
@@ -205,12 +205,12 @@
             <input type="button" value="Print Copy" onClick="printer(sudoSolved)">-->
                 <input type="button" value="Solve" onClick="readAndSolve()">
             </p>
-            <div class="align_center" id="status" style="color:antiquewhite"></div>
-            <div class="align_center" id="sudoku" style="color:antiquewhite"></div>
+            <div class="align-center" id="status" style="color:antiquewhite"></div>
+            <div class="align-center" id="sudoku" style="color:antiquewhite"></div>
         </div>
     </form>
     <form>
-        <div class="align_center">
+        <div class="align-center">
             <input class="projects" type="button" value="Contact me!" onClick="window.location.href='ji_contact.html'">
             <input class="projects" type="button" value="Home" onClick="window.location.href='index.html'">
 
