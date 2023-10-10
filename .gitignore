@@ -99,3 +99,14 @@ backups/contact_top backup.webp
 backups/home_top_cottage backup.webp
 backups/patties_top backup.webp
 backups/sudo_top backup.webp
+tests/sivut_contact_desktop_final.png
+tests/sivut_contact_mobile_final.png
+tests/sivut_home_desktop_final.png
+tests/sivut_home_mobile_final.png
+tests/sivut_patties_desktop_final.png
+tests/sivut_patties_mobile_final.png
+tests/sivut_sudoku_desktop_final.png
+tests/sivut_sudoku_mobile.final.png
+tests/sivut_temp_desktop_final.png
+tests/sivut_temp_mobile_final.png
+tests/test data.txt
