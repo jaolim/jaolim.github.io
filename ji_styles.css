@@ -208,7 +208,8 @@ body {
 .top-image {
     width: 688px;
     min-height: 200px;
-    max-width: 100% !important;
+    min-width: 405;
+    max-width: 100%;
     border-radius: 20%;
 }
 
