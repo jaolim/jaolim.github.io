@@ -42,10 +42,8 @@
             <img class="project-image" src="sudo_project.gif" alt=""
                 title="source: https://en.wikipedia.org/wiki/File:Sudoku_solved_by_bactracking.gif">
         </div>
-        <!--background-color:rgb(192, 192, 219);-->
         <div class="project-text">
             <h1 class="text-outline-orange">The Algorithm</h1>
-            <!--background-color:rgb(192, 192, 219, 0.8)-->
 
             <div class="text-outline-black" style="padding-bottom: 19px;font-size: 17px; color:azure;">
                 This is a showcase of a recursive backtracking brute force sudoku solver algorithm. <br>
@@ -90,7 +88,6 @@
                 </li>
             </ul>
         </div>
-        <!--background-color: rgb(250, 235, 215, 1)-->
         <div style="background-color: rgb(78, 52, 75, 0.8); padding-bottom: 38px; border-radius: 20%">
             <h2 style="text-align: center; color:antiquewhite; padding-top: 19px;">Try it in practice: fill and click
                 solve!</h2>
@@ -200,9 +197,6 @@
             </div>
 
             <p style="text-align: center">
-                <!--<input type="button" value="Print" onClick="printer(sudo)">
-            <input type="button" value="Copy" onClick="copySudoku()">
-            <input type="button" value="Print Copy" onClick="printer(sudoSolved)">-->
                 <input type="button" value="Solve" onClick="readAndSolve()">
             </p>
             <div class="align-center" id="status" style="color:antiquewhite"></div>
@@ -224,8 +218,6 @@
         let sudo = [];
         let sudoSolved = [];
         let displaystatus = 0;
-        //let testSudoku = "530070000 600195000 098000060 800060003 400803001 700020006 060000280 000419005 000080079"
-        //let testSudokuSolved = "534678912 672195348 198342567 859761423 426853791 713924856 961537284 287419635 345286179"
         for (let i = 0; i < 9; i++) {
             sudo[i] = [];
             sudoSolved[i] = [];
@@ -238,7 +230,6 @@
             let n = number;
             let i = 1;
             if (n >= 9) {
-                // console.log("Solver: line reset");
                 n = 0;
                 r++;
             }
@@ -246,18 +237,15 @@
                 return 0;
             }
             if (r >= 9) {
-                // console.log("Solver: success condition");
                 copySudoku();
                 solutions++;
                 return 0;
             }
             else if (sudo[r][n] != 0) {
-                // console.log("Solver filled cell recursive call")
                 return (solver(r, n + 1));
             }
             else {
                 while (i <= 9) {
-                    //console.log("Solver while status: ", i);
                     sudo[r][n] = i;
                     if (valid(r, n) == 1) {
                         if (solver(r, n + 1) == 1) {
@@ -268,7 +256,6 @@
                     i++;
                 }
             }
-            // console.log("Solver: fail condition");
             return 0;
         }
 
@@ -331,7 +318,6 @@
                         break;
                     }
                 }
-                //console.log("i: ", i, "l: ", l, "sudo: ", sudo[i][l]);
                 sudoSolved[i][l] = sudo[i][l];
                 l++;
             }
@@ -363,7 +349,6 @@
             while (i < 9) {
                 if (sudo[i][l] != 0) {
                     if (valid(i, l) == 0) {
-                        // console.log("validation: fail");
                         return 0;
                     }
                 }
@@ -373,7 +358,6 @@
                     i++;
                 }
             }
-            // console.log("validation: meni läpi");
             return 1;
         }
 
@@ -412,12 +396,9 @@
             }
             istart = i;
             lstart = l;
-            //console.log("3by3 i = ", i);
-            //console.log("3by3 l = ", l);
             while (i - istart < 3) {
                 if (row != i || number != l) {
                     if (sudo[row][number] == sudo[i][l]) {
-                        //console.log("3by3: failas");
                         return 0;
                     }
                 }
@@ -427,7 +408,6 @@
                     i++;
                 }
             }
-            //console.log("3by3: läpi meni")
             return 1;
         }
 
@@ -436,32 +416,21 @@
             let l = 0;
             while (l < 9) {
                 if (sudo[row][number] == sudo[i][l] && l != number) {
-                    //console.log("xAndY l-loop: failas");
                     return 0;
                 }
-                //console.log("L-loop status: ", l);
                 l++;
             }
             i = 0;
             l = number;
             while (i < 9) {
                 if (sudo[row][number] == sudo[i][l] && i != row) {
-                    //console.log("xAndY i-loop: failas");
                     return 0;
                 }
-                //console.log("i-loop status: ", i)
                 i++;
             }
-            //console.log("xAndY: meni läpi")
             return 1
                 ;
         }
-
-        /*function validTest() {
-            let y = Number(document.getElementById("validRow").value);
-            let x = Number(document.getElementById("validNumber").value);
-            // console.log("Valid test: ", valid(y, x));
-        }*/
 
         function fillerRedirect() {
             let sudo = document.getElementById("fill").value.trim();
