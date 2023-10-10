@@ -95,7 +95,9 @@ body {
 
 .image-links {
     width: 171px;
-    max-width: 100%;
+    height: min (171px, 95%);
+    max-width: 95%;
+    max-height: 95%;
     border-radius: 50%;
 }
 
@@ -105,13 +107,17 @@ body {
 
 .project-image {
     width: 340px;
+    height: min (340px, 95%);
     max-width: 95%;
+    max-height: 95%;
     display: inline-block;
 }
 
 .project-image-temp {
     width: 340px;
+    height: min (340px, 95%);
     max-width: 95%;
+    max-height: 95%;
     border-width: 2px;
     border-style: solid;
     border-color: green;
@@ -207,8 +213,9 @@ body {
 
 .top-image {
     width: 688px;
-    min-height: 200px;
-    max-width: 100%;
+    height: min (300px, 100%);
+    min-height: 148px;
+    max-width: max(100%, 299px);
     border-radius: 20%;
 }
 
