@@ -22,7 +22,7 @@ function searchFor() {
             }
         }
     }
-    results = results + "</ul>"
+    results = results + "</ul>";
     if (matches == 0) {
         results = "<input type=\"button\" value=\"X\" onClick=\"hideResults()\" style=\"color:red;\"> <h2 style=\"text-align: center; padding-bottom: 0.5cm\">Nothing Found</h2>"
     }
