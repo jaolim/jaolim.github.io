@@ -81,9 +81,8 @@ body {
 }
 
 .projects-div {
+    margin: auto;
     margin-bottom: 19px;
-    margin-left: 38px;
-    margin-right: 38px;
     display: flex;
     justify-content: space-between;
 }
